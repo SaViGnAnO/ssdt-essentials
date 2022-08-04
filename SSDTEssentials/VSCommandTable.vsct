@@ -1,47 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Include href="KnownImageIds.vsct"/>
+	<Include href="VSGlobals.vsct"/>
 
-  <Extern href="stdidcmd.h"/>
-  <Extern href="vsshlids.h"/>
-  <Include href="KnownImageIds.vsct"/>
-  <Include href="VSGlobals.vsct"/>
+	<Commands package="guidSSDTEssentialsPackage">
+		<Menus>
+			<Menu guid="guidSSDTEssentialsPackageCmdSet" id="SSDTEssentialsTopMenu" priority="0x700" type="Menu">
+				<Parent guid="guidSHLMainMenu"
+						id="IDG_VS_MM_TOOLSADDINS" />
+				<Strings>
+					<ButtonText>TestMenu</ButtonText>
+					<CommandName>SSDT Essentials</CommandName>
+				</Strings>
+			</Menu>
+		</Menus>
 
-  <Commands package="SSDTEssentials">
-	  <Menus>
-		  <Menu guid="SSDTEssentials" id="SSDTEssentialsTopMenu" type="Menu">
-			  <Strings>
-				  <ButtonText>SSDT Essentials</ButtonText>
-			  </Strings>
-		  </Menu>
-	  </Menus>
+		<Groups>
+			<Group guid="guidSSDTEssentialsPackageCmdSet" id="SSDTEssentialsMenuGroup" priority="0x0600">
+				<Parent guid="guidSSDTEssentialsPackageCmdSet" id="SSDTEssentialsTopMenu"/>
+			</Group>
+		</Groups>
 
-	  <Groups>
-      <Group guid="SSDTEssentials" id="SSDTEssentialsMenuGroup" priority="0x0600">
-        <Parent guid="SSDTEssentials" id="SSDTEssentialsTopMenu"/>
-      </Group>
-    </Groups>
+		<Buttons>
+			<Button guid="guidSSDTEssentialsPackageCmdSet" id="FixUnnamedConstraintsCommand" priority="0x0100" type="Button">
+				<Parent guid="guidSSDTEssentialsPackageCmdSet" id="SSDTEssentialsMenuGroup" />
+				<Icon guid="ImageCatalogGuid" id="EditDatabase" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Fix Unnamed Constraints</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
 
-    <!--This section defines the elements the user can interact with, like a menu command or a button
-        or combo box in a toolbar.--> 
-		
-    <Buttons>
-      <Button guid="SSDTEssentials" id="FixUnnamedConstraintsCommand" priority="0x0100" type="Button">
-        <Parent guid="SSDTEssentials" id="SSDTEssentialsMenuGroup" />
-        <Icon guid="ImageCatalogGuid" id="EditDatabase" />
-        <CommandFlag>IconIsMoniker</CommandFlag>
-        <Strings>
-          <ButtonText>Fix Unnamed Constraints</ButtonText>
-          <LocCanonicalName>.Extensions.SSDTEssentials.FixUnnamedConstraints</LocCanonicalName>
-        </Strings>
-      </Button>
-    </Buttons>
-  </Commands>
+	<Symbols>
+		<GuidSymbol name="guidSSDTEssentialsPackage" value="{ca1659ef-d2d5-41ad-b1d5-11f7cecda18f}" />
 
-  <Symbols>
-    <GuidSymbol name="SSDTEssentials" value="{ca1659ef-d2d5-41ad-b1d5-11f7cecda18f}">
-		<IDSymbol name="SSDTEssentialsTopMenu" value="0x1000"/>
-	    <IDSymbol name="SSDTEssentialsMenuGroup" value="0x0001" />
-		<IDSymbol name="FixUnnamedConstraintsCommand" value="0x0100" />
-    </GuidSymbol>
-  </Symbols>
+		<GuidSymbol name="guidSSDTEssentialsPackageCmdSet" value="{69c0b337-59d8-4591-8cbd-a59603459d56}">
+			<IDSymbol name="SSDTEssentialsMenuGroup" value="0x1020" />
+			<IDSymbol name="FixUnnamedConstraintsCommand" value="0x0100" />
+			<IDSymbol name="SSDTEssentialsTopMenu" value="0x1021"/>
+		</GuidSymbol>
+
+		<GuidSymbol name="guidImages" value="{e9355adc-5b1b-45b2-8b03-a76fc449a9ee}" >
+			<IDSymbol name="bmpPic1" value="1" />
+			<IDSymbol name="bmpPic2" value="2" />
+			<IDSymbol name="bmpPicSearch" value="3" />
+			<IDSymbol name="bmpPicX" value="4" />
+			<IDSymbol name="bmpPicArrows" value="5" />
+			<IDSymbol name="bmpPicStrikethrough" value="6" />
+		</GuidSymbol>
+	</Symbols>
 </CommandTable>

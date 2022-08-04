@@ -20,8 +20,8 @@ namespace SSDTEssentials
     /// </summary>
     internal sealed partial class PackageIds
     {
-        public const int SSDTEssentialsTopMenu = 0x1000;
-        public const int SSDTEssentialsMenuGroup = 0x0001;
+        public const int SSDTEssentialsTopMenu = 0x1021;
+        public const int SSDTEssentialsMenuGroup = 0x1020;
         public const int FixUnnamedConstraintsCommand = 0x0100;
     }
 }
